@@ -35,13 +35,29 @@ EXAMPLE-----
           all file are copyed to remote repository one and two files are not copyed all the files available in 
           loacl repository copyed to remote repository (push)
 
+There four type of branchs-
+         -main/master branch
+         -futher branch
+         -release branch
+         -hot fix branch
+         --avery code or any thing can be stored in main/master branch then it can be pushed to release branch
+         --future branch is you need to add any thing or you need to write a new version that any thing can written
+           in the futher branch and it can tested avery thing is fine it pushed to main/master branch. main/master
+           is pushed to the release branch then it reches to customer
+         -hot fix --if customer facing an issue with thing use need change immedetaly.hot fix means ypu have solve 
+          very fast (2-3 days) that is the hot fix
+
 GIT COMMANDS---
        --git init  = it is to initilazed the git
        --git status = to know the status of git
        --git = git is installed are not
        --git add <file name> = working to staging area calling file either single or multiable
-       --git commit = calling all file to local repository
+       --git commit -m = calling all file to local repository
        --git push -u = calling all file to remote repository 
        --git branch = to know the branch
+       --git clone <repo url> = in git hub which repository it have to save
        --git checkout -b "brach name" = to cteate a branch
        --git checkout "branch name" = to go the branch
+       --git log = to know new and old file or version 
+       --git reset --head <commit id> = to go to the old version commit is avaliable in git log command
+       
