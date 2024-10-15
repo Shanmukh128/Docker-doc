@@ -49,17 +49,20 @@ There four type of branchs-
 
 GIT COMMANDS---
        --git init  = it is to initilazed the git
+       --git config user.name "<here username (Shanmukh128)>" =to login peticular git to handle
+       --git config password <"here git password "> =login password 
        --git status = to know the status of git
        --git = git is installed are not
        --git add <file name> = working to staging area calling file either single or multiable
        --git commit -m = calling all file to local repository
-       --git push -u = calling all file to remote repository 
+       --git push -u origin main/master = calling all file to remote repository 
+       --git pull = to pull to old to new version to shift use this command and before push use this command
        --git branch = to know the branch
        --git clone <repo url> = in git hub which repository it have to save
        --git remote add origin https://github.com/Shanmukh128/git-doc.git - to save file in git
        --git checkout -b "brach name" = to cteate a branch
        --git checkout "branch name" = to go the branch
        --git log = to know new and old file or version 
-       --git reset --head <commit id> = to go to the old version commit is avaliable in git log command
+       --git reset --hard <commit id> = to go to the old version commit is avaliable in git log command
        --git diff = To know to modifacation
        
