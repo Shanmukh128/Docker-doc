@@ -50,7 +50,7 @@ There four type of branchs-
 GIT COMMANDS---
        --git init  = it is to initilazed the git
        --git config user.name "<here username (Shanmukh128)>" =to login peticular git to handle
-       --git config password <"here git password "> =login password 
+       --git config user.email "<here email address>"= To login use both the command and login to the git 
        --git status = to know the status of git
        --git = git is installed are not
        --git add <file name> = working to staging area calling file either single or multiable
@@ -65,4 +65,6 @@ GIT COMMANDS---
        --git log = to know new and old file or version 
        --git reset --hard <commit id> = to go to the old version commit is avaliable in git log command
        --git diff = To know to modifacation
+       --git remote -v = to know the remote thr avaliable remote repository
+       --git remote = to know the what is our remote using
        
