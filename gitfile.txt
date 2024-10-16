@@ -64,7 +64,11 @@ GIT COMMANDS---
        --git checkout "branch name" = to go the branch
        --git log = to know new and old file or version 
        --git reset --hard <commit id> = to go to the old version commit is avaliable in git log command
-       --git diff = To know to modifacation
+       --git diff = To know to modification
        --git remote -v = to know the remote thr avaliable remote repository
        --git remote = to know the what is our remote using
-       
+       --git commit -a -m "massage" = Ata time both add and commit by using this command
+       --git iff --cached
+       --git diff <file name> = to know the particular file modification are changes
+       --git diff --untracked = To check which file are untracked
+       --git rm --cached <file name> = To delete the file for the local repository
