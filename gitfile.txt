@@ -1,4 +1,7 @@
-Git & Githud both are different 
+Git & Githud both are different  
+
+what is git?
+      -- git free and open source distribute version control system
 
 There are Four types
 	-vcs & git repos
@@ -72,3 +75,4 @@ GIT COMMANDS---
        --git diff <file name> = to know the particular file modification are changes
        --git diff --untracked = To check which file are untracked
        --git rm --cached <file name> = To delete the file for the local repository
+       --git add . = To add all the file into the staging area by using the (.)
