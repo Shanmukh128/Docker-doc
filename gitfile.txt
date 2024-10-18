@@ -61,7 +61,7 @@ GIT COMMANDS---
        --git push -u origin main/master = calling all file to remote repository 
        --git pull = to pull to old to new version to shift use this command and before push use this command
        --git branch = to know the branch
-       --git clone <repo url> = in git hub which repository it have to save
+       --git clone <repo url> = it is used to download the remote repository in to the local repository 
        --git remote add origin https://github.com/Shanmukh128/git-doc.git - to save file in git
        --git checkout -b "brach name" = to cteate a branch
        --git checkout "branch name" = to go the branch
@@ -76,3 +76,8 @@ GIT COMMANDS---
        --git diff --untracked = To check which file are untracked
        --git rm --cached <file name> = To delete the file for the local repository
        --git add . = To add all the file into the staging area by using the (.)
+       --git cherry-pick<commite id > = To combine the two braches by using this command it is like merge
+       --git merge <branch name> = to merge more branch into the main branch
+       --fork -- It means a copy
+       --clone -- it means to download the repository 
+       --branch -- main branch is stord main code and we work on different branch and merge to the main branch
