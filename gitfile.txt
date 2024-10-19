@@ -80,4 +80,4 @@ GIT COMMANDS---
        --git merge <branch name> = to merge more branch into the main branch
        --fork -- It means a copy
        --clone -- it means to download the repository 
-       --branch -- main branch is stord main code and we work on different branch and merge to the main branch
+       --branch -- main branch is stord main code and we work on different branch and merge to the main branch 
