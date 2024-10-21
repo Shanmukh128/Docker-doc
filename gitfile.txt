@@ -67,6 +67,7 @@ GIT COMMANDS---
        --git checkout "branch name" = to go the branch
        --git log = to know new and old file or version 
        --git reset --hard <commit id> = to go to the old version commit is avaliable in git log command
+       --git revert <commit id> =to go old one or delete the exists one or if we made a mistak go old version it is used
        --git diff = To know to modification
        --git remote -v = to know the remote thr avaliable remote repository
        --git remote = to know the what is our remote using
