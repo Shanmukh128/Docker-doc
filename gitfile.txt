@@ -53,7 +53,7 @@ There four type of branchs-
 GIT COMMANDS---
        --git init  = it is to initilazed the git
        --git config user.name "<here username (Shanmukh128)>" =to login peticular git to handle
-       --git config user.email "<here email address>"= To login use both the command and login to the git 
+       --git config user.email "<here email address(339@)>"= To login use both the command and login to the git 
        --git status = to know the status of git
        --git = git is installed are not
        --git add <file name> = working to staging area calling file either single or multiable
@@ -65,13 +65,19 @@ GIT COMMANDS---
        --git remote add origin https://github.com/Shanmukh128/git-doc.git - to save file in git
        --git checkout -b "brach name" = to cteate a branch
        --git checkout "branch name" = to go the branch
+       --git checkout -d "branch name" = To delete the branch
        --git log = to know new and old file or version 
-       --git reset --hard <commit id> = to go to the old version commit is avaliable in git log command
-       --git revert <commit id> =to go old one or delete the exists one or if we made a mistak go old version it is used
+       --git reset --hard <commit id> = to go to the old version commit id is avaliable in git log command
+       --git revert <commit id> = to go to the old version and delete the new version
        --git diff = To know to modification
        --git remote -v = to know the remote thr avaliable remote repository
        --git remote = to know the what is our remote using
        --git commit -a -m "massage" = Ata time both add and commit by using this command
+       --git tag <tag name> = To created a new tag
+       --git tag =it will show all the tags
+       --git tag -a <tag name> -m <"massage"> = creating a light weight tag by using this command
+       --git tag -d <tag name> = To delete the tag
+       --git push origin <tag name> = to push tag into the remote repositire
        --git iff --cached
        --git diff <file name> = to know the particular file modification are changes
        --git diff --untracked = To check which file are untracked
