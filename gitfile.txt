@@ -78,6 +78,20 @@ GIT COMMANDS---
        --git add . = To add all the file into the staging area by using the (.)
        --git cherry-pick<commite id > = To combine the two braches by using this command it is like merge
        --git merge <branch name> = to merge more branch into the main branch
+       --git stash = It is saved someware and it will give some id 
+       --git stash save <"name"> = If you want give name to the stash by using this command
+       --git stash list = To check all stash details by using this command
+       --git stash pop = To go recently stash to working area  it cannot be there in stash list it deleted in stash list
+       --git stash apply <stash name (0)> = While useing stash apply it will show the deatails in git status and
+                                            git stash list also
+       --git stash show -p = It will show modified changes what are it will show it will recent stash file
+       --git stash show <stash@{0 or 1}> -p =it will show changes what we made in particular file
+       --git stash drop <stash@{0 or 1 or 2 }> = It will delete the stash for completely .If not given stash id then
+                                                 it will delete recent stash one that is use of this commad
+       --git stash clear = It delete the all the staged file and avery thing is cleared
+       --git stash branch <branch name> <stash id> = If you want to store stash details in different branch use this one 
+       --stash -- It means like a security or hidden if you working in main branch we need switch to different 
+                  branch without commiting we will use the stash command
        --fork -- It means a copy
        --clone -- it means to download the repository 
        --branch -- main branch is stord main code and we work on different branch and merge to the main branch 
