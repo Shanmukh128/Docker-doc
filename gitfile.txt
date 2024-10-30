@@ -64,7 +64,7 @@ GIT COMMANDS---
        --git clone <repo url> = it is used to download the remote repository in to the local repository 
        --git remote add origin https://github.com/Shanmukh128/git-doc.git - to save file in git
        --git checkout -b "brach name" = to cteate a branch
-       --git checkout "branch name" = to go the branch
+       --git checkout "branch name" = to switch into the branch
        --git checkout -d "branch name" = To delete the branch
        --git log = to know new and old file or version 
        --git reset --hard <commit id> = to go to the old version commit id is avaliable in git log command
