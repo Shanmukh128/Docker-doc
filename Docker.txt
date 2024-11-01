@@ -132,7 +132,7 @@
    -docker run -d --name <container name> --net host <image name or id> = to create host network and at a time start container
    -docker create --name <container name> --net host <image name or id> = To create host network
    -docker run -d --name <container name> --net none <image name or id> = To create none network and at a time start container
-   -docker create --name <container name> --net name <image name or id> = To create a none network container
+   -docker create --name <container name> --net none <image name or id> = To create a none network container
      
        
    
