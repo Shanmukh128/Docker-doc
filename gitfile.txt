@@ -1,7 +1,7 @@
 Git & Githud both are different  
 
 what is git?
-      -- git free and open source distribute version control system
+      -- git free and open source distribute version control system and to store source code
 
 There are Four types
 	-vcs & git repos
@@ -53,8 +53,22 @@ There four type of branchs-
 GIT COMMANDS---
        --git init  = it is to initilazed the git
        --git config user.name "<here username (Shanmukh128)>" =to login peticular git to handle
+<<<<<<< Updated upstream
+<<<<<<< HEAD
        --git config user.email "<here email address(339@)>"= To login use both the command and login to the git 
+=======
+<<<<<<< Updated upstream
+       --git config user.email "<here email address>"= To login use both the command and login to the git 
+>>>>>>> shanu
        --git status = to know the status of git
+=======
+       --git config user.email "<here email address(669@)>"= To login use both the command and login to the git 
+       --git status = to know the status of file
+>>>>>>> Stashed changes
+=======
+       --git config user.email "<here email address(669@)>"= To login use both the command and login to the git 
+       --git status = to know the status of file
+>>>>>>> Stashed changes
        --git = git is installed are not
        --git add <file name> = working to staging area calling file either single or multiable
        --git commit -m = calling all file to local repository
