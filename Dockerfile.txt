@@ -1,0 +1,229 @@
+-Docker is software platform it is used test and deploy quickly docker can be used
+
+-Docker is also a version control system and it's stores a docker images
+-In one docker image we can create 'n' number of continers
+
+-Docker installation
+    -install the docker engine,beacause docker engine is runs in windows,linux,mac os
+    -everyone commanley used docker engine
+    -check windows features and turn on the windows subsystem in linux
+    -go to app store and install ubuntu terminal for linux 
+
+-come to overview 
+   we have physical machine or cloud platfom service
+          -inside the physical machine we creating a virtual machine or EC2 instances 
+                 -inside the virtual machine we have to create multible container
+                 -All the container are handle by docker
+
+-Docker is light weigth continer because there do not have a full operating system and there use base operatig system
+
+-Docker life cycle
+     -By using the commands
+     -docker file to docker image to docker container to docker engine all this done with commands
+     -Docker build first command for to image
+     -Docker run second command for to docker container
+     -Docker daemon is go down then all the comtainer will go down
+-In docker we have finial docker engine
+    -In docker engine SPOF
+         -SPOF - single pointer failure
+    -If docker engine is fail then all the container are fail
+
+-Docker daemon
+    -docker daemon is API request and mananges a docker object,imgaes,network,container and volumes and it just like a heart
+
+-differents b/w github and docker
+    -github we stores a source code
+    -docker we stores a docker images
+
+-Docker registries
+    -Docker registrie is platform it used to share images to everyone in the world either we have private and public
+
+-Install docker
+    -sudo apt install docker.io -y = docker is intalled
+    -sudo systemctl status docker = To check the docker is active are not by using this command
+    -sudo usermod -aG docker <username(ubuntu)> = To give all group permission to the docker user by using this command
+                                                   and after you must be restart the server or logout and loging it must be done
+-Docker images
+    -The useage of image is .in one image we create a multiable containers
+    -In one image we create n number of container
+    -We can create same image with different version
+    -If in case image is failed then cantainer will also failed
+    -If you want to delete image then first delete all containers depends on the image and next delete the image 
+
+-Docker networking
+    -what is networking
+         -networking is to communicate each other
+    -networking is key compond for every device or techology or cloud server or docker container
+    -In docker networking is used to communicate the one container to other container
+         -EX:If we two container, one container handlying front hand code and second container handlying back hand code
+             to communicate both container we use the networking
+    -There are three types of networking in docker
+         -BRIDGE
+         -HOST
+         -NONE
+         -hostname = to check the hostname
+         -ifconfig (or) ipconfig = To check the ip addres
+         -docker network ls = To check the docker network 
+         -docker run -d --name <container name> -p 8080:80 <image name> = docker container is created and it is also start
+                                                                          and port id is also created and it assced with
+                                                                          ip addres and port id
+        -docker create --name <container name> -p 8182:80 <image name or id> =to create container with port id
+        -To check container is running are not go and open the chrome new tap and give <network ip address>:<port id>
+         EX:192.168.250.71:8080
+    -BRIDGE NETWORK:
+            -docker network ls = To check the docker network 
+            -docker run -d --name <container name> -p 8080:80 <image name> = docker container is created and it is also start  and port id is also 
+                                                                    created and it assced with ip addres and port id
+            -docker create --name <container name> -p 8182:80 <image name or id> =to create container with port id
+            -docker network inspect brige = It will give the running container information and internal container ip address
+            -In bridge networking every container is specified with different port id 
+            -And loging to container by using port id
+            -mostly every one use the bridge
+            -every container default saved to bridge
+            -bridge networking is default and use is to communicate the internal containers and out side network
+    -HOST NETWORK:
+            -docker run -d --name <container name> --net host <image name or id> = To create host network and at a time start container
+            -docker create --name <container name> --net host <image name or id> = To create host network
+            -If we using docker host we can not use the port id
+            -directly it is accssed with ip address we won't use port id in host network
+            -only one container host network is accssed it can not work for second container because we not using the port id's
+             that why only applycable to one container 
+    -NONE NETWORK:
+            -If we use none network it can not communicate with internaly and externaly
+            -Because none used for testing purpose
+            -we can not use mostly none network
+            -docker run -d --name <container name> --net none <image name or id> = To create none network and at a time start container
+            -docker create --name <container name> --net name <image name or id> = To create a none network container
+-Build docker image -------
+    -docker build -t Shanmukh128/imagename .<file destination path> = To create a image by using the docker file useing by this command
+    -To build docker file, if we want make custom image
+    -Ex:we have image like nginx or mysql or godaddy any image we take in that image we have some tool or layers if you want to add the 
+        some tools for existed image we use this one
+    -we can not use direct command to build a docker image
+    -Instead of we use the Dockerfile
+    -DOCKERFILE---
+       -We creatre dockerfile inside the file we write quarys by using the commands
+       -FROM =it define a we taking a base image and buliding the required image
+       -add = it is used to copies the files from source on the host into the container's own filesystem at set destination,
+              add and copy both are simular but in add file is extract copy and also add can copy url's 
+       -copy = it is used to copies the files from source on the host into the container's own filesystem at set destination
+       -cmd = we have set command default when container is start then command can be excute
+       -entrypoint = sets default application to be used every time a container is created with the image
+       -env = set envinomental veriable
+       -expose = which networking container will be run and we set the specific port and we set network 
+       -maintainer = who is the author of the image like name,email
+       -run = when we creating a image on that time we use the run beacause if we want add a tools 
+       -user = sets the user id or user name and container run on which user like root,regular user we have to mention 
+       -volume = volume is in host machine if we want to mount in container we use it
+       -workdir = set the path where the command is to be excute
+    -EX --
+        FROM ubuntu:18.04
+        LABEL maintainer="shanmukh669@gmail.com"
+        RUN apt-get update && apt-get -y install apache2
+        EXPOSE 80
+        ENTRYPOINT ["/usr/sbin/apachectl"]
+        CMD ["-D","FOREGROUND"]
+        COPY index.html /var/www/html/index.html
+        VOLUME /var/www/html
+    --Push image into docker hub ----
+      -EX-Tag command --
+        -docker tag yourusername/imagename githubusername/customimagename:<tag name> = To create a tages to thr image after creating the
+                                                                                        tags push into the docker hub
+        -docker tag Shanmukh128/ubuntu Shanmukh128/ubuntu:v1.0 = To create a tags and at a time creating docker hub repository tag is linked
+                                                                 with given image name
+        -docker push imagename:<tag name> = To push image into the docker hub account
+        -docker push Shanmukh/ubuntu:v1.0 = Image is push into the docker hub account
+        -First add tags to the image and push to the docker hub
+
+-Docker Volumes-------
+    -giving storage to the containers
+    -we are giving storage to multiable container or single container
+    -we are createing a volume and mounting to the containers
+    -If container is deleted then data will be stored in the created volumes 
+    -single can gives to multiable containes
+    -docker volume ls = to check the docker volumes
+    -docker volume create <volume name> = To create a volume with custom name
+    -docker volume rm <volume name or id> = To remove the volume
+    -docker volume prune <volume name or id> = it will also remove the volume but it not remove the using volumes 
+    -docker volume inspect <volume name> = it will display the volume information and volume location
+    --mounting the volumes by using the -v or -from or --mount
+      -Below command is used mount and we created a volume and image before and creating a container by using the exits volume and image 
+      -docker run -it --name=<container name> --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container
+                                                                                                                          by using the exits volume
+      -EX command: docker run -it --name=first_container --mount source=volume_1,destination=/data_1 nginx
+
+      -docker run -it --name <container name> -v <created volume name>:/<dir name> <image name> =creating a container by using exits volume and image
+                                                                                                 by directly using -v creataing a container
+      -EX command: docker run -it --name second_container -v volume_1:/data_2 nginx 
+
+      -docker run it --volumes-from <source container name> --name <container name> nginx <shell name> = creating a container and by using exits container volumes
+      -EX -- creating container by using other container volumes and all volumes are shared to the creating container
+      -EX command: docker run it --volumes-from <first_container> --name third_container nginx /bin/bash =it will create a third container by sharing the
+                                                                                                          first container volumes
+-DOCKER COMMANDS  ---------
+   -docker inspect <source name> = it will display the source information
+   -docker ps = to check docker is created are not 
+   -docker login = To login to the docker
+   -docker logout = Logout from the docker 
+   -docker --version =To check the docker version
+   -docker search <image name> = It will display all that depends on image name 
+   -docker ps -a = It will show the all containers
+   -docker pull <image name>:latest = To create a image in docker or downoading the image to docker
+   -docker pull <image name>:version or tag name = To create particular image in docker use this command
+   -docker inspect <image name> = It will dispaly the image information and after pulling only it can be worked
+   -docker images = It will show the all the docker images in your docker account and it will image id
+   -docker image ls = It will show the all the docker images in your docker account and it will image id and same command
+   -docker history <image name> = It show the changes in the image
+   -docker rmi <image name>:latest or tags = It will remove the images form the docker
+   -docker create <image id or  image name> = containers is created by givien image id and image id is available in docker images command
+   -docker create --name <custom docker name> <image name or image id> = To create a container by using container name 
+   -docker ps = It will display running containers only  
+   -docker start <container id or container name> = TO start the container by using this command
+   -docker stop <container id or container name> = To stop container by using this command
+   -docker rm <container id or container name> = To delete the container
+   -docker rm -r <container id or container name> = To delete container force fulley
+   -docker kill <container name or container id> = It is used stop container force fulley
+   -docker ps -a = it show status of the container and container is running then logging in container by using bellow command
+   -docker exec -it <container name or container id> /bin/bash = To logging into the container 
+   -exit = come out from the contanier
+   -docker run -d --name <container name or id> <image name or image id> = By using docker run command both it will create a container and 
+                                                                     start the container (by using the -d)
+   -docker run --name <comtainer name or id> <image name or id> = By using run command without (-d) It will create a docker container and 
+                                                                  It will start the container and It login to container 
+   -hostname =to check the hostname
+   -ifconfig (or) ipconfig = To check the ip addres
+   -docker network ls = To check the docker network 
+   -docker run -d --name <container name> -p 8080:80 <image name> = docker container is created and it is also start  and port id is also 
+                                                                    created and it assced with ip addres and port id
+   -docker create --name <container name> -p 8182:80 <image name or id> =to create container with port id
+   -docker network inspect brige = It will give the running container information and internal container ip address
+   -docker run -d --name <container name> --net host <image name or id> = to create host network and at a time start container
+   -docker create --name <container name> --net host <image name or id> = To create host network
+   -docker run -d --name <container name> --net none <image name or id> = To create none network and at a time start container
+   -docker create --name <container name> --net none <image name or id> = To create a none network container
+   -docker build -t Shanmukh128/imagename .<file destination path> = To create a image by using the docker file useing by this command
+   -docker tag yourusername/imagename githubusername/customimagename:<tag name> = To create a tages to thr image after creating the
+                                                                                  tags push into the docker hub
+   -docker tag Shanmukh128/ubuntu Shanmukh128/ubuntu:v1.0 = To create a tags and at a time creating docker hub repository tag is linked
+                                                                 with given image name
+   -docker push imagename:<tag name> = To push image into the docker hub account
+   -docker push Shanmukh/ubuntu:v1.0 = Image is puah into the docker hub account
+   -docker volume ls = to check the docker volumes
+   -docker volume create <volume name> = To create a volume with custom name
+   -docker volume rm <volume name or id> = To remove the volume
+   -docker volume prune <volume name or id> = it will also remove the volume but it not remove the using volumes 
+   -docker volume inspect <volume name> = it will display the volume information where it is stored and all information 
+   -docker run -it --name <container name> --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container
+                                                                                                                       by using the exits volume
+   -docker run -it --name <container name> -p <port id:80> --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container and port id's
+                                                                                                                                       by using the exits volume 
+   -docker run -it --name <container name> -v <created volume name>:/<dir name> <image name> =creating a container by using exits volume and image
+                                                                                              by directly using -v creataing a container
+   -docker run -it --name <container name> -p 8080:80 -v <created volume name>:/<dir name> <image name> =creating a container and port's by using exits volume and image
+                                                                                                         by directly using -v creataing a container   
+   -docker run it --volumes-from <source container name> --name <container name> <image name> <shell name> = creating a container and by using exits container volumes
+                                                                                                             that mean's it will take volumes from pervious container 
+   -docker run it --volumes-from <source container name> --name <container name> -p 9083:80 <image name> <shell name> = creating a container and port's by using exits container volumes
+                                                                                                                        that mean's it will take volumes from pervious container 
+       
+   
