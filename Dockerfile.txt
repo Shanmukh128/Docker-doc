@@ -91,7 +91,7 @@
     -NONE NETWORK:
             -If we use none network it can not communicate with internaly and externaly
             -Because none used for testing purpose
-            -we can not use mostly none network
+            -we can not use mostly none network because is it just like testing
             -docker run -d --name <container name> --net none <image name or id> = To create none network and at a time start container
             -docker create --name <container name> --net name <image name or id> = To create a none network container
 -Build docker image -------
@@ -156,10 +156,16 @@
                                                                                                  by directly using -v creataing a container
       -EX command: docker run -it --name second_container -v volume_1:/data_2 nginx 
 
-      -docker run it --volumes-from <source container name> --name <container name> nginx <shell name> = creating a container and by using exits container volumes
+      -docker run -it --volumes-from <source container name> --name <container name> nginx <shell name> = creating a container and by using exits container volumes
       -EX -- creating container by using other container volumes and all volumes are shared to the creating container
-      -EX command: docker run it --volumes-from <first_container> --name third_container nginx /bin/bash =it will create a third container by sharing the
+      -EX command: docker run -it --volumes-from <first_container> --name third_container nginx /bin/bash =it will create a third container by sharing the
                                                                                                           first container volumes
+      -docker run -it --name <container name> -v "$(pwd)":/<dir name> <image name> = To create a container by pushing working directory into the volume
+       -EX --
+          -At a time create a both volume and container with in the present working directory
+          -"$(pwd)"=it just like file and folder location 
+          -If you are working in the present working directory that dirctory and file can a create and volume and container
+       -EX command: docker run -it --name fivth_container -v "$(pwd)":/date_4 nginx = "$(pwd)" it indactes the present working directory location
 -DOCKER COMMANDS  ---------
    -docker inspect <source name> = it will display the source information
    -docker ps = to check docker is created are not 
@@ -183,6 +189,7 @@
    -docker rm <container id or container name> = To delete the container
    -docker rm -r <container id or container name> = To delete container force fulley
    -docker kill <container name or container id> = It is used stop container force fulley
+   -docker rename <container name> <new_container name> = To rename to the container
    -docker ps -a = it show status of the container and container is running then logging in container by using bellow command
    -docker exec -it <container name or container id> /bin/bash = To logging into the container 
    -exit = come out from the contanier
@@ -215,15 +222,17 @@
    -docker volume inspect <volume name> = it will display the volume information where it is stored and all information 
    -docker run -it --name <container name> --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container
                                                                                                                        by using the exits volume
-   -docker run -it --name <container name> -p <port id:80> --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container and port id's
+   -docker run -it --name <container name> -p <port id>:80 --mount source=<created volume name>,destination=/<dir name> <image name> = It will create a container and port id's
                                                                                                                                        by using the exits volume 
    -docker run -it --name <container name> -v <created volume name>:/<dir name> <image name> =creating a container by using exits volume and image
                                                                                               by directly using -v creataing a container
    -docker run -it --name <container name> -p 8080:80 -v <created volume name>:/<dir name> <image name> =creating a container and port's by using exits volume and image
                                                                                                          by directly using -v creataing a container   
-   -docker run it --volumes-from <source container name> --name <container name> <image name> <shell name> = creating a container and by using exits container volumes
+   -docker run -it --volumes-from <source container name> --name <container name> <image name> <shell name> = creating a container and by using exits container volumes
                                                                                                              that mean's it will take volumes from pervious container 
-   -docker run it --volumes-from <source container name> --name <container name> -p 9083:80 <image name> <shell name> = creating a container and port's by using exits container volumes
+   -docker run -it --volumes-from <source container name> --name <container name> -p 9083:80 <image name> <shell name> = creating a container and port's by using exits container volumes
                                                                                                                         that mean's it will take volumes from pervious container 
+   -docker run -it --name <container name> -v "$(pwd)":/<dir name> <image name> = To create a container by pushing working directory into the volume
+   -docker run -it --name <container name> -p <port id>:80 -v "$(pwd)":/<dir name> <image name> = To create a container with port id by pushing working directory into the volume
        
    
